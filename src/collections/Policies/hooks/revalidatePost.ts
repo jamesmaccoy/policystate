@@ -10,32 +10,32 @@ export const revalidatePost: CollectionAfterChangeHook<Post> = ({
   req: { payload },
 }) => {
   if (doc._status === 'published') {
-    const path = `/posts/${doc.slug}`
+    const path = `/policies/${doc.slug}`
 
-    payload.logger.info(`Revalidating post at path: ${path}`)
+    payload.logger.info(`Revalidating policy at path: ${path}`)
 
     revalidatePath(path)
-    revalidateTag('posts-sitemap')
+    revalidateTag('policies-sitemap')
   }
 
-  // If the post was previously published, we need to revalidate the old path
+  // If the policy was previously published, we need to revalidate the old path
   if (previousDoc._status === 'published' && doc._status !== 'published') {
-    const oldPath = `/posts/${previousDoc.slug}`
+    const oldPath = `/policies/${previousDoc.slug}`
 
-    payload.logger.info(`Revalidating old post at path: ${oldPath}`)
+    payload.logger.info(`Revalidating old policy at path: ${oldPath}`)
 
     revalidatePath(oldPath)
-    revalidateTag('posts-sitemap')
+    revalidateTag('policies-sitemap')
   }
 
   return doc
 }
 
 export const revalidateDelete: CollectionAfterDeleteHook<Post> = ({ doc }) => {
-  const path = `/posts/${doc?.slug}`
+  const path = `/policies/${doc?.slug}`
 
   revalidatePath(path)
-  revalidateTag('posts-sitemap')
+  revalidateTag('policies-sitemap')
 
   return doc
 }

@@ -6,8 +6,8 @@ const defaultLabels = {
 }
 
 const defaultCollectionLabels = {
-  posts: {
-    plural: 'Posts',
+  policies: {
+    plural: 'Policies',
     singular: 'Post',
   },
 }

@@ -1,6 +1,6 @@
 import type { Post } from '@/payload-types'
 
-export const post1: Partial<Post> = {
+export const policy1: Partial<Post> = {
   slug: 'digital-horizons',
   _status: 'published',
   // @ts-ignore
@@ -55,7 +55,7 @@ export const post1: Partial<Post> = {
                         format: 0,
                         mode: 'normal',
                         style: '',
-                        text: ' This content is fabricated and for demonstration purposes only. To edit this post, ',
+                        text: ' This content is fabricated and for demonstration purposes only. To edit this policy, ',
                         version: 1,
                       },
                       {
@@ -299,6 +299,6 @@ export const post1: Partial<Post> = {
     image: '{{IMAGE_1}}',
     title: 'Digital Horizons: A Glimpse into Tomorrow',
   },
-  relatedPosts: [], // this is populated by the seed script
+  relatedPolicies: [], // this is populated by the seed script
   title: 'Digital Horizons: A Glimpse into Tomorrow',
 }

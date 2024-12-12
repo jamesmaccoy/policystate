@@ -1,6 +1,6 @@
 import type { Post } from '@/payload-types'
 
-export const post3: Partial<Post> = {
+export const policy3: Partial<Post> = {
   slug: 'dollar-and-sense-the-financial-forecast',
   _status: 'published',
   // @ts-ignore
@@ -36,7 +36,7 @@ export const post3: Partial<Post> = {
                         format: 0,
                         mode: 'normal',
                         style: '',
-                        text: 'This content is fabricated and for demonstration purposes only. To edit this post, ',
+                        text: 'This content is fabricated and for demonstration purposes only. To edit this policy, ',
                         version: 1,
                       },
                       {
@@ -257,6 +257,6 @@ export const post3: Partial<Post> = {
     image: '{{IMAGE_1}}',
     title: 'Dollar and Sense: The Financial Forecast',
   },
-  relatedPosts: [], // this is populated by the seed script
+  relatedPolicies: [], // this is populated by the seed script
   title: 'Dollar and Sense: The Financial Forecast',
 }

@@ -12,7 +12,7 @@ export interface Config {
   };
   collections: {
     pages: Page;
-    posts: Post;
+    policies: Policy;
     media: Media;
     categories: Category;
     users: User;
@@ -27,7 +27,7 @@ export interface Config {
   collectionsJoins: {};
   collectionsSelect: {
     pages: PagesSelect<false> | PagesSelect<true>;
-    posts: PostsSelect<false> | PostsSelect<true>;
+    policies: PoliciesSelect<false> | PoliciesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -337,13 +337,13 @@ export interface ArchiveBlock {
     [k: string]: unknown;
   } | null;
   populateBy?: ('collection' | 'selection') | null;
-  relationTo?: 'posts' | null;
+  relationTo?: 'policies' | null;
   categories?: (string | Category)[] | null;
   limit?: number | null;
   selectedDocs?:
     | {
-        relationTo: 'posts';
-        value: string | Post;
+        relationTo: 'policies';
+        value: string | Policy;
       }[]
     | null;
   id?: string | null;
@@ -371,9 +371,9 @@ export interface Category {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
+ * via the `definition` "policies".
  */
-export interface Post {
+export interface Policy {
   id: string;
   title: string;
   content: {
@@ -391,7 +391,7 @@ export interface Post {
     };
     [k: string]: unknown;
   };
-  relatedPosts?: (string | Post)[] | null;
+  relatedPolicies?: (string | Policy)[] | null;
   categories?: (string | Category)[] | null;
   meta?: {
     title?: string | null;
@@ -635,8 +635,8 @@ export interface Redirect {
           value: string | Page;
         } | null)
       | ({
-          relationTo: 'posts';
-          value: string | Post;
+          relationTo: 'policies';
+          value: string | Policy;
         } | null);
     url?: string | null;
   };
@@ -669,8 +669,8 @@ export interface Search {
   title?: string | null;
   priority?: number | null;
   doc: {
-    relationTo: 'posts';
-    value: string | Post;
+    relationTo: 'policies';
+    value: string | Policy;
   };
   slug?: string | null;
   meta?: {
@@ -700,8 +700,8 @@ export interface PayloadLockedDocument {
         value: string | Page;
       } | null)
     | ({
-        relationTo: 'posts';
-        value: string | Post;
+        relationTo: 'policies';
+        value: string | Policy;
       } | null)
     | ({
         relationTo: 'media';
@@ -895,12 +895,12 @@ export interface PagesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts_select".
+ * via the `definition` "policies_select".
  */
-export interface PostsSelect<T extends boolean = true> {
+export interface PoliciesSelect<T extends boolean = true> {
   title?: T;
   content?: T;
-  relatedPosts?: T;
+  relatedPolicies?: T;
   categories?: T;
   meta?:
     | T
